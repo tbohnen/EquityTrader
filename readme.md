@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # EquityTrader
 =======
 
@@ -59,4 +58,3 @@ Mongo
 
 ##Web##
 1. Website is served with the express framework in NodeJs, using Angular 1. I believe in having a very thin web layer and doing most of the display in html and javascript and letting the business logic reside in the API. That way the code for the website as well as the mobile application is easily changeable.
->>>>>>> parent of b1439f2... Added initial docker file as well as housekeeping
