@@ -56,3 +56,7 @@ Mongo
 
 ##Web##
 1. Website is served with the express framework in NodeJs, using Angular 1. I believe in having a very thin web layer and doing most of the display in html and javascript and letting the business logic reside in the API. That way the code for the website as well as the mobile application is easily changeable.
+
+###Other###
+
+This project has gone through a number of renames so please ignore the project names. Rename is on my to do list, not far up there though...
