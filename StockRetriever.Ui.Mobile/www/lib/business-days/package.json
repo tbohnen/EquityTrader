@@ -1,0 +1,28 @@
+{
+  "name": "business-days",
+  "version": "0.0.0",
+  "description": "Find +/- business days from today or given date",
+  "main": "lib/business_days.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "coffee test/test.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nickdesaulniers/business-days.git"
+  },
+  "keywords": [
+    "business",
+    "day",
+    "from",
+    "to",
+    "today"
+  ],
+  "author": "Nick Desaulniers",
+  "license": "Beerware",
+  "bugs": {
+    "url": "https://github.com/nickdesaulniers/business-days/issues"
+  }
+}

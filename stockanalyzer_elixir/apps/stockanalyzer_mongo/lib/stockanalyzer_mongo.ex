@@ -1,0 +1,2 @@
+defmodule StockAnalyzerMongo do
+end

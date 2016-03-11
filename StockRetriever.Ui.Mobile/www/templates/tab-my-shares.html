@@ -1,0 +1,53 @@
+<ion-view view-title="My Shares">
+  <ion-content>
+  <button class="button button-full button-dark" ng-click="addShareTransaction();">
+      Add Share Transaction
+  </button>
+  <div class="item item-input item-button-right">
+    <span class="input-label">Selected Date:</span>
+    <input type='date' ng-model="selectedDate" />
+    <button class="button button-small button-icon icon ion-refresh" ng-click="refresh(selectedDate);"></button>
+  </div>
+  <div class="list">
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Sort By:
+    </div>
+    <select ng-model="orderItem">
+      <option value="DailyMovement" selected>Daily Movement</option>
+      <option value="TotalMovement">Total Movement</option>
+      <option>Name</option>
+      <option value="PortfolioName">Portfolio Name</option>
+      <option>Sector</option>
+    </select>
+  </label>
+
+</div>
+  </h3>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" 
+      ng-repeat="row in rows | orderBy:orderItem:reverse" 
+      type="item-text-wrap">
+        <h2>{{row.ShareIndex}}</h2>
+        <p>Name: {{row.ShareName}}</p>
+        <p>Portfolio Name: {{row.PortfolioName}}
+        <p ng-class="{green: row.DailyMovement > 0, red: row.DailyMovement < 0}">Daily Movement: {{row.DailyMovement}}%</p>
+        <p>Date Of Price: {{row.DateOfPrice | date:'mediumDate'}}</p>
+        <p>Days Held: {{row.DaysHeld}}</p>
+        <p>Total Movement: {{row.TotalMovement}}%</p>
+        <p>Average Daily Movement: {{row.DailyAverage}}%</p>
+        <p>Four Week Growth: {{row.FourWkGrowth}}%</p>
+        <p>Six Month Growth: {{row.SixMonthGrowth}}%</p>
+        <p>One Year Growth: {{row.FiftyTwoWkGrowth}}%</p>
+        <p>Three Year Growth: {{row.ThreeYearGrowth}}%</p>
+        <p>Number of Shares: {{row.NoOfShares}}</p>
+        <p>Percentage of Portfolio: {{ row.PercentageOfPortfolio }}%</p>
+        <p>Current Value: R{{row.CurrentValue}}</p>
+        <p>Purchase Value: R{{row.PurchaseValue}}</p>
+        <p>Close: R{{row.ClosePrice / 100}}</p>
+        <p>Sector: {{row.Sector}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

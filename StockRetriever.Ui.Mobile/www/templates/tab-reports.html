@@ -1,0 +1,81 @@
+<ion-view view-title="Reports">
+<ion-content>
+
+<style type="test/css">
+.hide{
+  line-height: 0px;
+}
+</style>
+
+<ion-list>
+
+<label class="item item-input item-select">
+  <div class="input-label">
+    Report:
+  </div>
+  <select ng-model="reportName">
+    <option value="DailyStocksReport" selected="selected">All Shares</option>
+    <option value="DailyTopFortyReport">Current Top 40</option>
+  </select>
+</label>
+
+<div ng-show="reportName != null">
+  <div class="item item-input item-button-right">
+    <span class="input-label">Selected Date:</span>
+    <input type='date' ng-model="selectedDate" />
+    <button class="button button-small button-icon icon ion-refresh" ng-click="refresh(selectedDate, reportName);"></button>
+  </div>
+
+
+  <label class="item item-input item-input-inset">
+    <span class="input-label">Filter:</span>
+    <input type='text' ng-model="filterText" />
+  </label>
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Sort By:
+    </div>
+    <select ng-model="orderItem">
+      <option value="DailyMovement" >Daily Movement</option>
+      <option value="FiveYearGrowth" selected>5 Year Growth</option>
+      <option value="ThreeYearGrowth" selected>3 Year Growth</option>
+      <option value="FiftyTwoWkGrowth" selected>52 Week Growth</option>
+      <option value="SixMonthGrowth" >31 Week Growth</option>
+      <option value="FourWkGrowth" >4 Week Growth</option>
+      <option value="ShareName">Name</option>
+      <option value="Sector">Sector</option>
+    </select>
+  </label>
+  <div ng-repeat="row in rows | filter:stockMatch(filterText) | orderBy:orderItem:true">
+    <div class="list list-item" ng-click="selectShare(row)" ng-hold="alert()">
+      <div class="item">
+        <h2>
+          {{row.ShareIndex}} : 
+          {{row.ShareName}} (
+          <span ng-class="{green: row.DailyMovement > 0, red: row.DailyMovement < 0}" >{{ row.DailyMovement }}%</span>
+          )
+        </h2>
+      </div>
+
+      <div class="item" style="padding-left:50px;" type="item" ng-class="{hide: selectedShare !== row.ShareIndex}">
+        <p>Close Price: R{{row.ClosePrice / 100 | number : 2}}</p>
+        <p>Open Price: R{{row.OpenPrice / 100}}</p>
+        <p >Daily Movement: {{row.DailyMovement}}%</p>
+        <p>Date Of Price: {{row.DateOfPrice | date:'mediumDate'}}</p>
+        <p>Five Year Growth: {{row.FiveYearGrowth}}%
+        <p>Three Year Growth: {{row.ThreeYearGrowth}}%
+        <p>52 Week Growth: {{row.FiftyTwoWkGrowth}}%
+        <p>31 Week Growth: {{row.SixMonthGrowth}}%
+        <p>4 Week Growth: {{row.FourWkGrowth}}%
+        <p>Sector: {{row.Sector}}</p>
+        <p>Industry: {{row.Industry}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+  </ion-list>
+</ion-content>
+</ion-view>

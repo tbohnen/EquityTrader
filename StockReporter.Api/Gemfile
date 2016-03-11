@@ -1,0 +1,19 @@
+# A sample Gemfile
+source "https://rubygems.org"
+
+# gem "rails"
+
+gem 'tilt', '~> 1.4.1'
+gem "sinatra", '~> 1.4.5'
+gem "sinatra-contrib"
+gem "tiny"
+gem "thin"
+gem "thin_service"
+gem "win32-process"
+gem "gcm"
+gem "business_time"
+gem "configatron"
+gem 'mongo', '~> 2.0.6'
+gem "time_diff"
+gem "rspec-core"
+gem 'rspec-expectations'

@@ -1,0 +1,108 @@
+extends ./layout.jade
+block content
+  div(ng-controller="mySharesController")
+    .row
+      .col-lg-12
+        .page-header 
+          h1 My Shares
+    .row
+      .col-lg-3
+        .form-group
+          label Selected Date
+          input.form-control(type="date",ng-model="selectedDate")
+      .col-lg-3
+        .form-group
+          div &nbsp;
+          button.btn.btn-primary(ng-click="refresh(selectedDate,reportName)") Refresh &nbsp;
+          button.btn.btn-primary(style="margin-left:2px" type='button', data-toggle='modal', data-target='#addShareTransactionModal') Add Transaction
+    .row
+      .col-lg-12
+        table(class="table table-striped table-bordered table-hover dataTable no-footer")
+          thead
+            tr(role="row")
+              th Code
+              th(class="sorting", ng-click="setOrderItem('ShareName')") Name
+              th(class="sorting", ng-click="setOrderItem('PortfolioName')") Portfolio Name
+              th Close Price
+              th(class="sorting", ng-click="setOrderItem('DailyMovement')") Daily Movement
+              th(class="sorting", ng-click="setOrderItem('TotalMovement')") Total Movement
+              th(class="sorting", ng-click="setOrderItem('TotalMovement')") Average Daily Movement
+              th(class="sorting", ng-click="setOrderItem('DaysHeld')") Days Held
+              th(class="sorting", ng-click="setOrderItem('PurchaseValue')")  Purchase Value
+              th(class="sorting", ng-click="setOrderItem('CurrentValue')")  Current Value
+              th(class="sorting", ng-click="setOrderItem('PercentageOfPortfolio')") Portfolio %
+              th(class="sorting", ng-click="setOrderItem('PercentageOfPortfolio')") 4 Wk Growth
+              th(class="sorting", ng-click="setOrderItem('PercentageOfPortfolio')") 6 Mth Growth
+              th(class="sorting", ng-click="setOrderItem('PercentageOfPortfolio')") 1 Yr Growth
+              th(class="sorting", ng-click="setOrderItem('PercentageOfPortfolio')") 3 Yr Growth
+              th Number of Shares
+              th Sector
+              th Industry
+              th Date Of Price
+              th
+          tbody
+            tr(ng-repeat="row in rows | orderBy:orderItem:orderItemReverse")
+              td {{row.ShareIndex}}
+              td {{row.ShareName}}
+              td {{row.PortfolioName}}
+              td R{{row.ClosePrice / 100}}
+              td {{row.DailyMovement}}%
+              td {{row.TotalMovement}}%
+              td {{row.DailyAverage}}%
+              td {{row.DaysHeld}}
+              td R{{row.PurchaseValue}}
+              td R{{row.CurrentValue}}
+              td {{ row.PercentageOfPortfolio }}%
+              td {{row.FourWkGrowth}}%
+              td {{row.SixMonthGrowth}}%
+              td {{row.FiftyTwoWkGrowth}}%
+              td {{row.ThreeYearGrowth}}%
+              td {{row.NoOfShares}}
+              td {{row.Sector}}
+              td {{row.Industry}}
+              td {{row.DateOfPrice | date:'mediumDate'}}
+              td
+                div(class="dropdown")
+                  button(class="btn btn-default dropdown-toggle",data-toggle="dropdown")
+                    span(class="glyphicon glyphicon-cog")
+                  ul(class="dropdown-menu",role="menu")
+                    li(role="presentation")
+                      a(class="pointer",role="menuitem", ng-click="deleteTransaction(row.MyEquitiesId)") Delete
+
+
+    #addShareTransactionModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='addShareTransactionModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#addShareTransactionModalLabel.modal-title Add Share Transaction
+          .modal-body
+            | 
+            label.item.item-input.item-input-inset
+            span.input-label Transaction Type:
+            select.form-control(ng-model="newShareTransaction.TransactionType")
+              option(value="Buy") Buy
+              option(value="Sell") Sell
+            label.item.item-input.item-input-inset
+            span.input-label Jse Share Code:
+            input(type='text', ng-model='newShareTransaction.ShareIndex', placeholder='Jse Share Code') 
+            br
+            label.item.item-input.item-input-inset
+            span.input-label Date Of {{newShareTransaction.TransactionType}}:
+            input(type='date', ng-model='newShareTransaction.DateOfPurchase', placeholder='Date Of Purchase') 
+            br
+            label.item.item-input.item-input-inset
+            span.input-label Number of Shares:
+            input(type='number', ng-model='newShareTransaction.NoOfShares', placeholder='Number of Shares') 
+            br
+            label.item.item-input.item-input-inset
+            span.input-label {{newShareTransaction.TransactionType}} Price (Cents):
+            input(type='number', ng-model='newShareTransaction.PurchasePrice', placeholder='{{newShareTransaction.TransactionType}} Price(Cents)') 
+            br
+            label.item.item-input.item-input-inset
+            span.input-label Portfolio Name:
+            input(type='text', ng-model='newShareTransaction.PortfolioName', placeholder='{{newShareTransaction.PortfolioName}}') 
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary(type='button',ng-click='saveTransaction(newShareTransaction);') Save changes

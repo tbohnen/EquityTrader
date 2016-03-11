@@ -1,0 +1,47 @@
+<ion-modal-view>
+<ion-header-bar>
+<h1 class="title">Add Share Transaction</h1>
+<button class="button" ng-click="closeModal();">X</button>
+</ion-header-bar>
+<ion-content>
+
+<label class="item item-input item-input-inset">
+  <span class="input-label">Transaction Type:</span>
+  <div class="bar bar-header bar-stable">
+    <button class="button button-block" ng-click="changeTransactionType();">
+      {{newShareTransaction.TransactionType}}
+    </button>
+  </div>
+</label>
+
+
+<label class="item item-input item-input-inset">
+  <span class="input-label">Jse Share Code:</span>
+  <input type='text' ng-model="newShareTransaction.ShareIndex"  placeholder="Jse Share Code" />
+</label>
+<label class="item item-input item-input-inset">
+  <span class="input-label">Date Of {{newShareTransaction.TransactionType}}:</span>
+  <input type='date' ng-model="newShareTransaction.DateOfPurchase"  placeholder="Date Of Purchase" />
+</label>
+<label class="item item-input item-input-inset">
+  <span class="input-label">Number of Shares:</span>
+  <input type='number' ng-model="newShareTransaction.NoOfShares"  placeholder="Number of Shares" />
+</label>
+<label class="item item-input item-input-inset">
+  <span class="input-label">{{newShareTransaction.TransactionType}} Price (Cents):</span>
+  <input type='number' ng-model="newShareTransaction.PurchasePrice"  placeholder="{{newShareTransaction.TransactionType}} Price(Cents)" />
+</label>
+<label class="item item-input item-input-inset">
+  <span class="input-label">{{newShareTransaction.PortfolioName}} Portfolio Name:</span>
+  <input type='text' ng-model="newShareTransaction.PortfolioName"  placeholder="{{newShareTransaction.PortfolioName}}" />
+</label>
+<label class="item item-input item-input-inset">
+  <span class="input-label">Transaction Type:</span>
+  <div class="bar bar-header bar-stable">
+<button class="button button-large button-block button-positive" ng-click='saveTransaction(newShareTransaction);'>
+  Save
+</button>
+  </div>
+</label>
+</ion-content>
+</ion-modal-view>

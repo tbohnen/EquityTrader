@@ -1,0 +1,60 @@
+extends ./layout.jade
+block content
+  div(ng-controller="reportsController")
+    .row
+      .col-lg-12
+        .page-header 
+          h1 Reports
+    .row
+      .col-lg-3
+        .form-group
+          label Report
+          select.form-control(ng-model="reportName",placeholder="Report")
+            option(value="") Select Report
+            option(value="DailyStocksReport") All Shares
+            option(value="DailyTopFortyReport") Current Top 40
+            option(value="queryreport/FiftyTwoToDailyMomentumStocksQuery") Year To Day Momentum
+      .col-lg-3
+        .form-group
+          label Selected Date
+          input.form-control(type="date",ng-model="selectedDate")
+      .col-lg-3
+        .form-group
+          label Filter
+          input.form-control(type="text", ng-model="filterText")
+      .col-lg-3
+        .form-group
+          div &nbsp;
+          button.btn.btn-primary(ng-click="refresh(selectedDate,reportName)") Refresh
+
+    .row
+      .col-lg-12
+        table(class="table table-striped table-bordered table-hover dataTable no-footer")
+          thead
+            tr(role="row")
+              th(class="sorting", ng-click="orderItem = ShareIndex") Code
+              th Name
+              th Close Price
+              th Open Price
+              th(class="sorting", ng-click="setOrderItem('DailyMovement')") Daily Movement
+              th(class="sorting", ng-click="setOrderItem('FourWkGrowth')") Four Week Growth
+              th(class="sorting", ng-click="setOrderItem('SixMonthGrowth')") Six Month Growth
+              th(class="sorting", ng-click="setOrderItem('FiftyTwoWkGrowth')") One Year Growth
+              th(class="sorting", ng-click="setOrderItem('ThreeYearGrowth')") Three Year Growth
+              th(class="sorting", ng-click="setOrderItem('Sector')") Sector
+              th(class="sorting", ng-click="setOrderItem('Industry')") Industry
+              th Date Of Price
+          tbody
+            tr(ng-repeat="row in rows | filter:stockMatch(filterText) | orderBy:orderItem:orderItemReverse")
+              td {{row.ShareIndex}}
+              td {{row.ShareName}}
+              td R{{row.ClosePrice / 100 |number:2}}
+              td R{{row.OpenPrice / 100 | number:2}}
+              td {{row.DailyMovement}}%
+              td {{row.FourWkGrowth}}%
+              td {{row.SixMonthGrowth}}%
+              td {{row.FiftyTwoWkGrowth}}%
+              td {{row.ThreeYearGrowth}}%
+              td {{row.Sector}}
+              td {{row.Industry}}
+              td {{row.DateOfPrice | date:'mediumDate'}}

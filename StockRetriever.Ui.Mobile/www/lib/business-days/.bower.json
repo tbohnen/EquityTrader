@@ -1,0 +1,14 @@
+{
+  "name": "business-days",
+  "homepage": "https://github.com/nickdesaulniers/business-days",
+  "_release": "2d18f14a99",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2d18f14a99d70672c5af686812ff85ae26cfab08"
+  },
+  "_source": "git://github.com/nickdesaulniers/business-days.git",
+  "_target": "*",
+  "_originalSource": "nickdesaulniers/business-days",
+  "_direct": true
+}

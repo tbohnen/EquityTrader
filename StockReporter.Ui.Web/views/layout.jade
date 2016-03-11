@@ -1,0 +1,85 @@
+doctype
+html(ng-app='portfolioBooster')
+  head
+    title Welcome - Portfolio Booster
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/components/bootstrap-social/bootstrap-social.css')
+    link(rel='stylesheet', href='/components/metisMenu/dist/metisMenu.min.css')
+    link(rel='stylesheet', href='/components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css')
+    link(rel='stylesheet', href='/components/startbootstrap-sb-admin-2/dist/css/timeline.css')
+    link(rel='stylesheet', href='/components/morrisjs/morris.css')
+    link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/components/angular-chart.js/dist/angular-chart.css')
+
+    link(rel='stylesheet', href='/components/angular-loading-bar/src/loading-bar.css')
+
+
+  body
+    #wrapper
+      nav.navbar.navbar-default.navbar-static-top(role='navigation')
+        .navbar-header
+          a.navbar-brand(href="/") Portfolio Booster
+        .nav.navbar-top-links.navbar-right
+
+          div(ng-controller="googleLoginController",ng-init="setUserId('#{userId}')")
+            li(ng-hide="isLoggedIn")
+              a(ng-click='loginGoogle();')
+                .btn.btn-block.btn-social.btn-google-plus
+                  i.fa.fa-google-plus
+                  span Sign in with Google
+      .navbar-default.sidebar(role='navigation',style='margin-top: 0px')
+        .sidebar-nav.navbar-collapse
+          ul.nav.in
+            li
+              a.active(href='/') 
+                i.fa.fa-dashboard.fa-fw
+                span(style='margin-left:5px') Dashboard
+            li
+              a.active(href='/MyShares') 
+                i.fa.fa-user.fa-fw
+                span(style='margin-left:5px') My Shares
+              a.active(href='/MyWatchlist') 
+                i.fa.fa-user.fa-fw
+                span(style='margin-left:5px') My Watchlist
+            li
+              a.active(href='/Reports') 
+                i.fa.fa-filter.fa-fw
+                span(style='margin-left:5px') Reports
+            li
+              a.active(href='/Charts') 
+                i.fa.fa-bar-chart-o.fa-fw
+                span(style='margin-left:5px') Charts
+                
+          
+    #page-wrapper
+      block content
+  
+  script(type='text/javascript', src='/components/jquery/dist/jquery.min.js')
+  script(type='text/javascript', src='/components/angular/angular.min.js')
+  script(type='text/javascript', src='/components/bootstrap/dist/js/bootstrap.min.js')
+  script(type='text/javascript', src='/components/metisMenu/dist/metisMenu.min.js')
+  script(type='text/javascript', src='/components/underscore/underscore-min.js')
+  script(type='text/javvascript', src='/components/angular-loading-bar/src/loading-bar.js')
+
+  script(type='text/javascript', src='/components/Chart.js/Chart.js')
+  script(type='text/javascript', src='/components/angular-chart.js/angular-chart.js')
+
+  script(type='text/javascript', src='/js/app.js')
+  script(type='text/javascript', src='/js/config.js')
+  script(type='text/javascript', src='/js/shared.js')
+  script(type='text/javascript', src='/js/dashboardController.js')
+  script(type='text/javascript', src='/js/myStocksSummaryDataService.js')
+  script(type='text/javascript', src='/js/myWatchlistServices.js')
+  script(type='text/javascript', src='/js/myWatchlistController.js')
+  script(type='text/javascript', src='/js/mySharesServices.js')
+  script(type='text/javascript', src='/js/mySharesController.js')
+  script(type='text/javascript', src='/js/reportsServices.js')
+  script(type='text/javascript', src='/js/reportsController.js')
+  script(type='text/javascript', src='/js/sharedServices.js')
+  script(type='text/javascript', src='/js/chartsController.js')
+  script(type='text/javascript', src='/js/chartsServices.js')
+  script(type='text/javascript', src='/js/googleLoginController.js')
+  script(src='//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js')
+  script.
+    webshims.setOptions('forms-ext', {types: 'date'});
+    webshims.polyfill('forms forms-ext');

@@ -1,0 +1,66 @@
+<ion-view view-title="Dashboard">
+<ion-content>
+
+<div class="list card" ng-hide="isLoggedIn">
+  <div class="item" >
+    <button class="button button-full" ng-click="googleLogin()">
+      Google Login</button>
+  </div>
+</div>
+
+<div >
+
+<div class="list card">
+  <div class="item item-divider">
+    My Shares Summary
+  </div>
+  <div class="item item-text-wrap">
+    <!--<p>Last Update: {{MyStocksSummary.Date | date:'medium'}}</p>-->
+    <p>Daily Average: {{MyStocksSummary.DailyAverage}}%</p>
+    <p>Total Movement Average: {{MyStocksSummary.TotalMovement}}%</p>
+    <p>Portfolio Overall Value: {{MyStocksSummary.PortfolioOverallValue / 100 | currency:"R":2}}</p>
+    <p>Strongest Share Overall: {{MyStocksSummary.StrongestShareOverall.ShareIndex}} 
+    ({{MyStocksSummary.StrongestShareOverall.TotalMovement}}%)</p>
+    <p>Weakest Share Overall: {{MyStocksSummary.WeakestShareOverall.ShareIndex}}
+    ({{MyStocksSummary.WeakestShareOverall.TotalMovement}}%)</p>
+    <p>Strongest Daily Share: {{MyStocksSummary.StrongestDailyShare.ShareIndex}}
+    ({{MyStocksSummary.StrongestDailyShare.DailyMovement}}%)</p>
+    <p>Weakest Daily Share: {{MyStocksSummary.WeakestDailyShare.ShareIndex}}
+    ({{MyStocksSummary.WeakestDailyShare.DailyMovement}}%)</p>
+  </div>
+</div>
+<div class="list card">
+  <div class="item item-divider">
+    Top 10 Best Performers
+  </div>
+  <div class="item item-text-wrap" ng-repeat="topPerformer in topPerformers">
+    <p>
+     {{topPerformer.ShareName}} ({{topPerformer.ShareIndex}}) | Movement: {{topPerformer.DailyMovement}}% | Close: R{{topPerformer.ClosePrice / 100 | number: 2}}
+    </p>
+  </div>
+</div>
+<div class="list card">
+  <div class="item item-divider">
+    Top 10 Worst Performers
+  </div>
+  <div class="item item-text-wrap" ng-repeat="bottomPerformer in bottomPerformers">
+    <p>
+    {{bottomPerformer.ShareName}} ({{bottomPerformer.ShareIndex}}) | Movement: {{bottomPerformer.DailyMovement}}% | Close: R{{bottomPerformer.ClosePrice / 100 | number: 2}}
+    </p>
+  </div>
+</div>
+
+<div class="item item-divider">
+  My Shares Distribution
+</div>
+<div class="item item-text-wrap">
+  <canvas id="portfolioDistributionChart" class="chart chart-doughnut" data="portfolioDistributionData"
+         labels="portfolioDistributionLabels"  legend="true" scale="1" options="portfolioDistributionChartOptions">
+  </canvas> 
+</div>
+</div>
+</div>
+
+
+</ion-content>
+</ion-view>

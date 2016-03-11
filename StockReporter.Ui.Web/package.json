@@ -1,0 +1,12 @@
+{
+  "name": "PortfolioBooster",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "ejs": "^2.3.3",
+    "express": "3.0.0alpha4",
+    "jade": "*",
+    "nib": "*",
+    "stylus": "*"
+  }
+}

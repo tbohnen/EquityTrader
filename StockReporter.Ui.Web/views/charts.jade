@@ -1,0 +1,55 @@
+extends ./layout.jade
+block content
+  style.
+    #page-wrapper {
+      font: 10px sans-serif;
+    }
+    .axis path,
+    .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    }
+    path.candle {
+    stroke: #000000;
+    }
+    path.candle.body {
+    stroke-width: 0;
+    }
+    path.candle.up {
+    fill: #00AA00;
+    stroke: #00AA00;
+    }
+    path.candle.down {
+    fill: #FF0000;
+    stroke: #FF0000;
+    }
+  div(ng-controller="chartsController")
+    script(src='http://d3js.org/d3.v3.min.js')
+    script(src='http://techanjs.org/techan.min.js')
+    .row
+      .col-lg-3
+        .form-group
+          label Report
+          select.form-control(ng-model="chartName",placeholder="Chart")
+            option(value="DailyCloseStockPriceReport") Stock Price
+            option(value="MyPortfolioReport") My Portfolio
+            option(value="RsiReport") Rsi
+            option(value="SingleStockMacdReport") Macd
+      .col-lg-3
+        .form-group
+          label Share Index
+          input.form-control(type="text", ng-model="shareIndex")
+      .col-lg-3
+        .form-group
+          label Shart Date
+          input.form-control(type="date",ng-model="startDate")
+      .col-lg-3
+        .form-group
+          label End Date
+          input.form-control(type="date",ng-model="endDate")
+      .col-lg-3
+        .form-group
+          div &nbsp;
+          button.btn.btn-primary(ng-click="refresh(shareIndex, startDate,endDate, chartName)") Refresh
+

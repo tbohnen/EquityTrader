@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="/Users/theobohnen/Source/bitbucket/stockanalyzer/TechnicalAnalyticsCalculators/TechnicalAnalyticsCalculators/bin/Debug/TechnicalAnalyticsCalculators.dll" total="5" errors="4" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-07-29" time="15:45:44">
+  <environment nunit-version="2.6.4.14350" clr-version="4.0.30319.17020" os-version="Unix 14.4.0.0" platform="Unix" cwd="/Users/theobohnen/Source/BitBucket/stockanalyzer/TechnicalAnalyticsCalculators/TechnicalAnalyticsCalculators" machine-name="theos-MacBook-Pro.local" user="theobohnen" user-domain="theos-MacBook-Pro.local" />
+  <culture-info current-culture="en-ZA" current-uiculture="en-ZA" />
+  <test-suite type="Assembly" name="/Users/theobohnen/Source/bitbucket/stockanalyzer/TechnicalAnalyticsCalculators/TechnicalAnalyticsCalculators/bin/Debug/TechnicalAnalyticsCalculators.dll" executed="True" result="Failure" success="False" time="0.121" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="CalculatorTests" executed="True" result="Success" success="True" time="0.023" asserts="0">
+        <results>
+          <test-case name="CalculatorTests.something" executed="True" result="Success" success="True" time="0.019" asserts="1" />
+        </results>
+      </test-suite>
+      <test-suite type="Namespace" name="TechnicalAnalysis" executed="True" result="Failure" success="False" time="0.073" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="TechnicalAnalysisGeneratorTests" executed="True" result="Failure" success="False" time="0.072" asserts="0">
+            <results>
+              <test-case name="TechnicalAnalysis.TechnicalAnalysisGeneratorTests.Generate Technical Analysis for SHF for given date" executed="True" result="Error" success="False" time="0.037" asserts="0">
+                <failure>
+                  <message><![CDATA[System.TypeInitializationException : An exception was thrown by the type initializer for <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository
+  ----> System.InvalidOperationException : 'MongoUsername' could not be found.]]></message>
+                  <stack-trace><![CDATA[at TechnicalAnalyticsCalculators.MongoRepository.GetTopNEquitiesOnOrBefore (DateTime date, System.String shareIndex, Int32 noOfResults) [0x00000] in <filename unknown>:0
+at TechnicalAnalysisIndicators.MovementCalculator.daysMovement (DateTime date, System.String share, Int32 noDays) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGenerator.generate (DateTime date, System.String shareIndex) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGeneratorTests.Generate Technical Analysis for SHF for given date () [0x00000] in <filename unknown>:0
+--InvalidOperationException
+at System.Configuration.AppSettingsReader.GetValue (System.String key, System.Type type) [0x00000] in <filename unknown>:0
+at <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository..cctor () [0x00000] in <filename unknown>:0
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="TechnicalAnalysis.TechnicalAnalysisGeneratorTests.Test that DBXJP has correct daily movement" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                <failure>
+                  <message><![CDATA[System.TypeInitializationException : An exception was thrown by the type initializer for <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository
+  ----> System.InvalidOperationException : 'MongoUsername' could not be found.]]></message>
+                  <stack-trace><![CDATA[at TechnicalAnalyticsCalculators.MongoRepository.GetTopNEquitiesOnOrBefore (DateTime date, System.String shareIndex, Int32 noOfResults) [0x00000] in <filename unknown>:0
+at TechnicalAnalysisIndicators.MovementCalculator.daysMovement (DateTime date, System.String share, Int32 noDays) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGenerator.generate (DateTime date, System.String shareIndex) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGeneratorTests.Generate Technical Analysis for SHF for given date () [0x00000] in <filename unknown>:0
+--InvalidOperationException
+at System.Configuration.AppSettingsReader.GetValue (System.String key, System.Type type) [0x00000] in <filename unknown>:0
+at <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository..cctor () [0x00000] in <filename unknown>:0
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="Namespace" name="TechnicalAnalysisIndicators" executed="True" result="Failure" success="False" time="0.007" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="MovementCalculatorTests" executed="True" result="Failure" success="False" time="0.007" asserts="0">
+            <results>
+              <test-case name="TechnicalAnalysisIndicators.MovementCalculatorTests.Calculate Movement for 14 days" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                <failure>
+                  <message><![CDATA[System.TypeInitializationException : An exception was thrown by the type initializer for <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository
+  ----> System.InvalidOperationException : 'MongoUsername' could not be found.]]></message>
+                  <stack-trace><![CDATA[at TechnicalAnalyticsCalculators.MongoRepository.GetTopNEquitiesOnOrBefore (DateTime date, System.String shareIndex, Int32 noOfResults) [0x00000] in <filename unknown>:0
+at TechnicalAnalysisIndicators.MovementCalculator.daysMovement (DateTime date, System.String share, Int32 noDays) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGenerator.generate (DateTime date, System.String shareIndex) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGeneratorTests.Generate Technical Analysis for SHF for given date () [0x00000] in <filename unknown>:0
+--InvalidOperationException
+at System.Configuration.AppSettingsReader.GetValue (System.String key, System.Type type) [0x00000] in <filename unknown>:0
+at <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository..cctor () [0x00000] in <filename unknown>:0
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="TechnicalAnalysisIndicators.MovementCalculatorTests.Calculate movement for date" executed="True" result="Error" success="False" time="0.000" asserts="0">
+                <failure>
+                  <message><![CDATA[System.TypeInitializationException : An exception was thrown by the type initializer for <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository
+  ----> System.InvalidOperationException : 'MongoUsername' could not be found.]]></message>
+                  <stack-trace><![CDATA[at TechnicalAnalyticsCalculators.MongoRepository.GetTopNEquitiesOnOrBefore (DateTime date, System.String shareIndex, Int32 noOfResults) [0x00000] in <filename unknown>:0
+at TechnicalAnalysisIndicators.MovementCalculator.daysMovement (DateTime date, System.String share, Int32 noDays) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGenerator.generate (DateTime date, System.String shareIndex) [0x00000] in <filename unknown>:0
+at TechnicalAnalysis.TechnicalAnalysisGeneratorTests.Generate Technical Analysis for SHF for given date () [0x00000] in <filename unknown>:0
+--InvalidOperationException
+at System.Configuration.AppSettingsReader.GetValue (System.String key, System.Type type) [0x00000] in <filename unknown>:0
+at <StartupCode$TechnicalAnalyticsCalculators>.$MongoRepository..cctor () [0x00000] in <filename unknown>:0
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

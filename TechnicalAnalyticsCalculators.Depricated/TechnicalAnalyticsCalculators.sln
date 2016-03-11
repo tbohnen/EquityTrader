@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TechnicalAnalyticsCalculators", "TechnicalAnalyticsCalculators\TechnicalAnalyticsCalculators.fsproj", "{DD9CD766-C490-4206-8C72-5AA068D6374D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TechnicalAnalysisCalculators.Console", "TechnicalAnalysisCalculators.Console\TechnicalAnalysisCalculators.Console.fsproj", "{9FF6ABFC-FAC7-450B-8FC9-D3DA22589D25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD9CD766-C490-4206-8C72-5AA068D6374D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9CD766-C490-4206-8C72-5AA068D6374D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9CD766-C490-4206-8C72-5AA068D6374D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9CD766-C490-4206-8C72-5AA068D6374D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FF6ABFC-FAC7-450B-8FC9-D3DA22589D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FF6ABFC-FAC7-450B-8FC9-D3DA22589D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FF6ABFC-FAC7-450B-8FC9-D3DA22589D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FF6ABFC-FAC7-450B-8FC9-D3DA22589D25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

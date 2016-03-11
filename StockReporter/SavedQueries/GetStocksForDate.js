@@ -1,0 +1,1 @@
+db.Equity.find({DateRetrieved: { $gte : new ISODate("2014-10-18 00:23:21.157Z")}}).sort({DateRetrieved: -1})

@@ -1,0 +1,61 @@
+<ion-view view-title="Strategies">
+<ion-content>
+
+<label class="item item-input item-select">
+  <div class="input-label">
+    Strategy
+  </div>
+  <select ng-model="strategy">
+    <option selected value="">Choose a strategy</option>
+    <option value="IndustryBest">Top Performers in Industries</option>
+  </select>
+</label>
+
+<div ng-show="strategy != undefined && strategy != ''">
+  <div class="item item-input">
+    <span class="input-label">Minimum Market Cap:</span>
+    <input type='number' ng-model="minimumMarketCap" />
+  </div>
+  <div class="item item-input item-button-right">
+    <span class="input-label">Number Of Top Industries:</span>
+    <input type='number' ng-model="numberOfTopIndustries" />
+  </div>
+  <div class="item item-input item-button-right">
+    <span class="input-label">Number of Top Performers:</span>
+    <input type='number' ng-model="numberOfTopPerformers" />
+    <button class="button button-small button-icon icon ion-refresh" ng-click="runStrategy(strategy, minimumMarketCap, numberOfTopIndustries, numberOfTopPerformers)"></button>
+  </div>
+
+  <div class="list list-inset">
+    <div class="item">
+      Mean: {{ strategyResult.mean * 100 | number:2}}%
+    </div>
+    <div class="item">
+      Standard Deviation: {{strategyResult.stdDev * 100 |number:2 }}%
+    </div>
+    <div class="item">
+      Total Growth : {{strategyResult.totalGrowth * 100 | number:2 }}%
+    </div>
+    <div class="item">
+      <div ng-repeat="data in strategyResult.yearlyData | orderBy:year:false">
+        <div class="list list-inset">
+          <div class="item">
+            <h2>Year: {{data.year}} Growth: {{data.sumOfGrowth * 100 | number:2}}%</h2>
+          </div>
+          <div ng-repeat="stock in data.stocksToHold" class="item">
+            <div class="item">
+              <p>Share Code: {{stock.shareCode}}</p>
+              <p>Growth: {{stock.growth * 100 | number:2}}%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </item>
+    </div>
+
+
+
+  </div>
+
+</ion-content>
+</ion-view>

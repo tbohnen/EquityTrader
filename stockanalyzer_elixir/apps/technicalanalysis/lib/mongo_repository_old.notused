@@ -1,0 +1,14 @@
+defmodule MongoRepository do
+  @db_name Application.get_env(:db, :dbname)
+
+  def find(collection_name,query) do
+    result = Mongo.connect!
+    |> Mongo.db(@db_name)
+    |> Mongo.Db.collection(collection_name)
+    |> Mongo.Collection.find(query)
+    |> Enum.to_list
+
+    result
+
+  end
+end

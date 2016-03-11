@@ -1,0 +1,15 @@
+# A sample Gemfile
+source "https://rubygems.org"
+
+# gem "rails"
+gem "bson"
+gem "bson_ext"
+gem 'mongo', '~> 2.1.0'
+gem "business_time"
+gem "email"
+gem "excelinator"
+gem 'configatron'
+gem 'time_diff'
+gem 'mail'
+gem "rspec-core"
+gem 'rspec-expectations'

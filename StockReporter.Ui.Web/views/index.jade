@@ -1,0 +1,47 @@
+extends ./layout.jade
+block content
+  div(ng-controller="dashboardController")
+    .row
+      .col-lg-12
+        .page-header 
+          h1 Dashboard
+    .row
+      .col-lg-6
+        .panel.panel-default
+          .panel-heading
+            span My Shares Summary
+          .panel-body
+            p Last Update: {{MyStocksSummary.Date | date:'mediumDate'}}
+            p My Stocks Daily Average: {{MyStocksSummary.DailyAverage}}%
+            p My Stocks Total Movement Average: {{MyStocksSummary.TotalMovement}}%
+            p Portfolio Overall Value: {{MyStocksSummary.PortfolioOverallValue / 100 | currency:"R":2}}
+            p Strongest Share Overall: {{MyStocksSummary.StrongestShareOverall.ShareIndex}} 
+              {{MyStocksSummary.StrongestShareOverall.TotalMovement}}%
+            p Weakest Share Overall: {{MyStocksSummary.WeakestShareOverall.ShareIndex}}
+              {{MyStocksSummary.WeakestShareOverall.TotalMovement}}%
+            p Strongest Daily Share: {{MyStocksSummary.StrongestDailyShare.ShareIndex}}
+              {{MyStocksSummary.StrongestDailyShare.DailyMovement}}%
+            p Weakest Daily Share: {{MyStocksSummary.WeakestDailyShare.ShareIndex}}
+              {{MyStocksSummary.WeakestDailyShare.DailyMovement}}%
+       .col-lg-6
+         .panel.panel-default
+           .panel-heading
+             span My Shares Distribution
+           .panel-body
+             canvas#portfolioDistributionChart.chart.chart-doughnut(data='portfolioDistributionData', 
+             labels='portfolioDistributionLabels', legend='true', scale='1', options='portfolioDistributionChartOptions')
+    .row
+      .col-lg-6
+        .panel.panel-default
+          .panel-heading
+            span Top 10 Best Performers Today
+          .panel-body
+            div(ng-repeat="topPerformer in topPerformers")
+              p {{topPerformer.ShareName}} ({{topPerformer.ShareIndex}}) | Movement: {{topPerformer.DailyMovement}}% | Close: R{{topPerformer.ClosePrice / 100 | number: 2}}
+      .col-lg-6
+        .panel.panel-default
+          .panel-heading
+            span Top 10 Worst Performers Today
+          .panel-body
+            div(ng-repeat="bottomPerformer in bottomPerformers")
+              p {{bottomPerformer.ShareName}} ({{bottomPerformer.ShareIndex}}) | Movement: {{bottomPerformer.DailyMovement}}% | Close: R{{bottomPerformer.ClosePrice / 100 | number: 2}}

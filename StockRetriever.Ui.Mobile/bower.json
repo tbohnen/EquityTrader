@@ -1,0 +1,11 @@
+{
+  "name": "StockRetriever.Ui.Mobile",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+  },
+  "dependencies": {
+    "angular-chart.js": ">=0.3.19",
+    "moment": "~2.9.0"
+  }
+}

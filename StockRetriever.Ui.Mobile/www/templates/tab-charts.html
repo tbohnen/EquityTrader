@@ -1,0 +1,46 @@
+<ion-view view-title="Charts">
+<ion-content>
+
+<label class="item item-input item-select">
+  <div class="input-label">
+    Chart
+  </div>
+  <select ng-model="report" style="width:100%">
+    <option value="DailyCloseStockPriceReport">Stock Price</option>
+    <option value="MyPortfolioReport">My Portfolio</option>
+    <option value="RsiReport">Rsi</option>
+    <option value="SingleStockMacdReport">Macd</option>
+  </select>
+</label>
+<div class="item item-input" ng-hide="report == 'MyPortfolioReport'">
+  <input type='text' ng-model="shareIndex"  placeholder="Code" />
+</div>
+
+<div class="row">
+<div class="col">
+  <div class="item item-input">
+    <span class="input-label">Start</span>
+    <input type='date' ng-model="startDate" placeholder="Start Date"/>
+  </div>
+</div>
+<div class="col">
+  <div class="item item-input item-button-right">
+    <span class="input-label">End</span>
+    <input type='date' ng-model="endDate" placeholder="End Date"/>
+  </div>
+</div>
+
+<div class="col-5">
+  <button class="button button-small button-icon icon ion-refresh" 
+    ng-click="getChart(shareIndex,startDate,endDate,report);"></button>
+</div>
+</div>
+
+
+<canvas id="line" class="chart chart-line" data="data"
+    labels="labels" legend="true" series="series" scale="1" options="chartOptions">
+</canvas> 
+
+<!--<canvas linechart options="options" data="chart" ></canvas>-->
+</ion-content>
+</ion-view>
