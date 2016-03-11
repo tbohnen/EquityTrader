@@ -7,6 +7,9 @@ In short, Equity Trader is for the everyday man that just wants to look at price
 ###DISCLAIMER###
 My intention is not to violate any copyright or anything. I've done my best to keep this is platform agnostic but please do let me know if there is anything that should not be here!
 
+###Installing###
+I am working on creating a docker container as soon as possible.
+
 ###Why not Google Finance etc?###
 
 Honestly, I think Google Finance is a great platform and I think if that's enough for you, stick with it. My problem was that although they do have the ability to filter stock, I want so much more than that. My ultimate goal is to be able to setup a pre-defined "recipe" that will allow you to use technical indicators as well as fundamentals to eliminate stocks that does not fit your investment strategy.
